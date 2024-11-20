@@ -1,0 +1,64 @@
+.navbar {
+  padding: 15px 30px; /* Augmenter l'espace intérieur de la navbar */
+  font-size: 1.2rem; /* Augmenter la taille de la police */
+}
+
+.navbar-logo {
+  width: 50px; /* Agrandir le logo */
+  height: auto;
+}
+.navbar-nav .dropdown-menu {
+  background-color: #f8f9fa;  /* Utilise la même couleur de fond que la navbar */
+  border-radius: 0;  /* Pour que les bords soient carrés et épousent la forme de la navbar */
+}
+
+.navbar-nav .dropdown-item {
+  color: #495057;  /* La couleur de texte des éléments du dropdown */
+}
+
+.navbar-nav .dropdown-item:hover {
+  background-color: #e9ecef;  /* Change la couleur de fond lorsque l'élément est survolé */
+  color: #007bff;  /* Change la couleur du texte au survol */
+}
+
+
+.dropdown-menu {
+  max-height: 200px;
+  overflow-y: auto; /* Permet de faire défiler la liste si elle est trop longue */
+}
+
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem; /* Agrandir le texte du logo */
+  display: flex;
+  align-items: center;
+}
+
+
+.navbar-text {
+  font-size: 1.5rem; /* Agrandir le texte après le logo */
+  margin-left: 12px; /* Ajuste l'espace entre le logo et le texte */
+}
+
+.nav-item .nav-link {
+  font-size: 1.1rem; /* Agrandir la taille de la police des liens */
+  padding: 10px 15px; /* Ajouter plus d'espace autour des liens */
+}
+
+.navbar-nav .nav-item:hover .nav-link {
+  background-color: #f8f9fa; /* Ajouter un effet au survol pour améliorer l'interaction */
+  border-radius: 5px; /* Arrondir les coins au survol */
+}
+
+.navbar-toggler {
+  font-size: 1.5rem; /* Augmenter la taille du bouton de navigation */
+}
+
+.navbar-light .navbar-nav .nav-link.active {
+  color: #0056b3; /* Changer la couleur de l'élément actif */
+}
+
+.shadow-lg {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajouter une ombre subtile pour plus de profondeur */
+}

@@ -1,0 +1,41 @@
+<div class="content-list">
+  <div class="content-card" *ngFor="let content of contents">
+    <div class="content-summary">
+      <h3 class="content-title">{{ content.title }}</h3>
+    </div>
+    <button class="btn btn-primary" (click)="viewContent(content)">Consulter</button>
+  </div>
+</div>
+
+<!-- Fenêtre modale des détails -->
+<div *ngIf="selectedContent" class="modal-overlay" (click)="closeModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <header class="modal-header">
+      <h2>Détails du Contenu</h2>
+      <button class="btn btn-close" (click)="closeModal()">&times;</button>
+    </header>
+    <div class="modal-body">
+      <p><strong>Titre :</strong> {{ selectedContent.title }}</p>
+      <p><strong>Corps :</strong> {{ selectedContent.body }}</p>
+      <p><strong>Date de Création :</strong> {{ selectedContent.createdDate | date:'short' }}</p>
+      <p><strong>Catégorie :</strong> {{ selectedContent.category }}</p>
+
+      <!-- Affichage des commentaires -->
+      <div *ngIf="comments && comments.length > 0">
+        <h3>Commentaires :</h3>
+        <ul class="comments-list">
+          <li *ngFor="let comment of comments" class="comment-item">
+            <p>{{ comment.text }}</p>
+          </li>
+        </ul>
+      </div>
+      
+      
+      <a routerLink="/create-comment" class="link">Créer un commentaire</a>
+    </div>
+    <footer class="modal-footer">
+      <button class="btn btn-secondary" (click)="viewComments(selectedContent.id)">Voir les Commentaires</button>
+      <button class="btn btn-close" (click)="closeModal()">Fermer</button>
+    </footer>
+  </div>
+</div>

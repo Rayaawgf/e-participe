@@ -1,0 +1,25 @@
+<div class="content-details">
+    <!-- Affichage des détails du contenu -->
+    <div class="content-summary" *ngIf="content">
+      <h2>{{ content.title }}</h2>
+      <p><strong>Corps :</strong> {{ content.body }}</p>
+      <p><strong>Date de Création :</strong> {{ content.createdDate | date: 'short' }}</p>
+      <p><strong>Catégorie :</strong> {{ content.category }}</p>
+    </div>
+  
+    <!-- Affichage des commentaires -->
+    <div class="comments-section">
+      <h3>Commentaires :</h3>
+      <ul *ngIf="comments && comments.length > 0; else noComments">
+        <li *ngFor="let comment of comments">
+          <p>{{ comment.text }}</p>
+        </li>
+      </ul>
+  
+      <ng-template #noComments>
+        <p>Aucun commentaire pour ce contenu.</p>
+        <a routerLink="/create-comment" class="create-comment-link">Créer un commentaire</a>
+      </ng-template>
+    </div>
+  </div>
+  

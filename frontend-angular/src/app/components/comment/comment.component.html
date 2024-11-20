@@ -1,0 +1,18 @@
+<div>
+  <h2>Commentaires</h2>
+  <ul>
+    <li *ngFor="let comment of comments">
+      {{ comment.text }} (Auteur ID: {{ comment.userId }}, Contenu ID: {{ comment.contentId }})
+      <button (click)="deleteComment(comment.id ?? 0)">Supprimer</button>
+
+    </li>
+  </ul>
+
+  <h3>Ajouter un commentaire</h3>
+  <form (ngSubmit)="addComment()">
+    <textarea [(ngModel)]="newComment.text" name="text" placeholder="Votre commentaire" required></textarea>
+    <input [(ngModel)]="newComment.userId" name="userId" placeholder="ID utilisateur" type="number" required>
+    <input [(ngModel)]="newComment.contentId" name="contentId" placeholder="ID du contenu" type="number" required>
+    <button type="submit">Ajouter</button>
+  </form>
+</div>

@@ -1,0 +1,49 @@
+<div class="login-container">
+  <div class="login-box">
+      <div class="logo">
+          <img src="assets/logo.jpeg" alt="Logo">
+      </div>
+      
+      <h2>Login</h2>
+      
+      <form class="login-form" [formGroup]="loginForm" (ngSubmit)="login()">
+          <div class="form-group">
+              <label for="number">Numero de telephone</label>
+              <div class="input-group">
+                  <i class="fas fa-user"></i>
+                  <input type="text" id="number" formControlName="number" placeholder="Enter your number">
+              </div>
+              <div *ngIf="loginForm.get('number')?.touched && loginForm.get('number')?.invalid" class="error-message">
+                <span *ngIf="loginForm.get('number')?.errors?.['required']">Le numéro est obligatoire</span>
+                <span *ngIf="loginForm.get('number')?.errors?.['pattern']">Veuillez entrer un numéro valide</span>
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label for="password">Mot de passe</label>
+              <div class="input-group">
+                  <i class="fas fa-lock"></i>
+                  <input type="password" id="password" formControlName="password" placeholder="Enter your password">
+              </div>
+              <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid" class="error-message">
+                <span *ngIf="loginForm.get('password')?.errors?.['required']">Le mot de passe est obligatoire</span>
+                <span *ngIf="loginForm.get('password')?.errors?.['minlength']">Le mot de passe doit comporter au moins 6 caractères</span>
+              </div>
+          </div>
+
+          
+
+          <button type="submit" class="login-button" [disabled]="isLoading">
+            {{ isLoading ? 'Logging in...' : 'Login' }}
+          </button>
+      </form>
+
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+
+      <div class="register-link">
+          vous n'avez pas de compte? <a routerLink="/register">S'inscrire</a>
+      </div>
+  </div>
+</div>

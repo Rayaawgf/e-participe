@@ -1,0 +1,27 @@
+<div class="comments">
+    <h2>Commentaires</h2>
+  
+    <!-- Ajouter un commentaire -->
+    <div class="add-comment">
+      <input [(ngModel)]="newComment.text" placeholder="Ajouter un commentaire..." />
+      <button (click)="addComment()">Ajouter</button>
+    </div>
+  
+    <!-- Liste des commentaires -->
+    <ul>
+      <li *ngFor="let comment of comments">
+        <span>{{ comment.text }}</span>
+        <button (click)="selectCommentForEdit(comment)">Modifier</button>
+        <button (click)="deleteComment(comment.id)">Supprimer</button>
+      </li>
+    </ul>
+  
+    <!-- Modifier un commentaire -->
+    <div *ngIf="selectedComment" class="edit-comment">
+      <h3>Modifier le commentaire</h3>
+      <input [(ngModel)]="selectedComment.text" />
+      <button (click)="updateComment()">Enregistrer</button>
+      <button (click)="cancelEdit()">Annuler</button>
+    </div>
+  </div>
+  

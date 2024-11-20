@@ -1,0 +1,53 @@
+h1 {
+    text-align: center;
+    width: 100%; /* S'assurer que l'élément prend toute la largeur possible */
+    margin-bottom: 20px; /* Pour ajouter un peu d'espace sous le titre */
+  }
+  
+.user-list {
+    padding: 20px;
+  }
+  
+  .user-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    padding: 15px;
+    transition: transform 0.3s ease;
+  }
+  
+  .user-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .user-details {
+    flex-grow: 1;
+  }
+  
+  h3 {
+    margin: 0;
+    font-size: 1.2em;
+  }
+  
+  p {
+    margin: 5px 0;
+  }
+  
+  .delete-btn {
+    padding: 8px 12px;
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .delete-btn:hover {
+    background-color: #c9302c;
+  }
+  

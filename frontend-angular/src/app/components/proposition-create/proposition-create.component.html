@@ -1,0 +1,15 @@
+<div class="proposition-create">
+    <h2>Créer une Proposition</h2>
+    <form (ngSubmit)="createProposition()">
+      <div>
+        <label for="title">Titre</label>
+        <input type="text" id="title" [(ngModel)]="title" name="title" required>
+      </div>
+      <div>
+        <label for="file">Document</label>
+        <input type="file" id="file" (change)="onFileChange($event)" required>
+      </div>
+      <button type="submit">Créer Proposition</button>
+    </form>
+  </div>
+  

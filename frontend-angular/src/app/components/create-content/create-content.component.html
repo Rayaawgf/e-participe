@@ -1,0 +1,13 @@
+<div>
+    <h2>Créer un nouveau contenu</h2>
+    <form #contentForm="ngForm" (ngSubmit)="createContent(contentForm.value)">
+      <input type="text" name="title" ngModel placeholder="Titre" required />
+      <textarea name="body" ngModel placeholder="Contenu" required></textarea>
+      <select name="category" ngModel required>
+        <option value="LAW">Law</option>
+        <option value="ANNOUNCEMENT">Announcement</option>
+        <option value="SURVEY">Survey</option>
+      </select>
+      <button type="submit">Créer</button>
+    </form>
+  </div>

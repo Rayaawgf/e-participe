@@ -1,0 +1,11 @@
+<div class="user-list">
+  <h1>Liste des Utilisateurs</h1>
+
+  <div class="user-card" *ngFor="let user of users">
+    <div class="user-details">
+      <h3>{{ user.name }}</h3>
+      <p><strong>Numéro :</strong> {{ user.number }}</p>
+    </div>
+    <button class="delete-btn" (click)="user.id !== undefined && deleteUser(user.id)">Supprimer</button>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="proposition-list">
+    <h2>Propositions</h2>
+  
+    <!-- Bouton "Créer une proposition" -->
+    <button class="create-proposition-btn" (click)="createProposition()">Créer une proposition</button>
+  
+    <div *ngIf="propositions.length > 0">
+      <ul>
+        <li *ngFor="let proposition of propositions">
+          <h3>{{ proposition.title }}</h3>
+          <p>Status: {{ proposition.status ? 'Actif' : 'Inactif' }}</p>
+          <button (click)="viewProposition(proposition.id)">Voir</button>
+          <button (click)="deleteProposition(proposition.id)">Supprimer</button>
+        </li>
+      </ul>
+    </div>
+  
+    <div *ngIf="propositions.length === 0">
+      <p>Aucune proposition disponible</p>
+    </div>
+  </div>
+  

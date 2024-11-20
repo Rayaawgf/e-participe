@@ -1,0 +1,16 @@
+.comments {
+    max-width: 600px;
+    margin: auto;
+  }
+  
+  .add-comment input,
+  .edit-comment input {
+    width: calc(100% - 120px);
+    margin-right: 10px;
+  }
+  
+  .add-comment button,
+  .edit-comment button {
+    padding: 5px 10px;
+  }
+  
