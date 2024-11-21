@@ -20,6 +20,7 @@ import { CommentComponent } from './components/comment/comment.component';
 import { ContentDetailsComponent } from './components/content-details/content-details.component';
 import { PropositionListComponent } from './components/proposition-list/proposition-list.component';
 import { PropositionCreateComponent } from './components/proposition-create/proposition-create.component';
+import { CommentCreateComponent } from './components/comment-create/comment-create.component';
 
 
 
@@ -39,7 +40,8 @@ import { PropositionCreateComponent } from './components/proposition-create/prop
     CommentComponent,
     ContentDetailsComponent,
     PropositionListComponent,
-    PropositionCreateComponent
+    PropositionCreateComponent,
+    CommentCreateComponent
   ],
   imports: [
     BrowserModule,

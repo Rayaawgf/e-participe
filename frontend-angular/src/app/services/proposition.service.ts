@@ -8,7 +8,7 @@ import { Proposition } from '../models/proposition'; // Assurez-vous que cette i
 })
 export class PropositionService {
 
-  private apiUrl = '/api/propositions'; // Assurez-vous que l'URL est correcte
+  private apiUrl = 'http://localhost:8080/api/propositions'; 
 
   constructor(private http: HttpClient) { }
 

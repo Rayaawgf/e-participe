@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PropositionService } from '../../services/proposition.service';
-import { Proposition } from '../../models/proposition'; // Utilisation du modèle Proposition
-import { Router } from '@angular/router';
+import { Proposition } from '../../models/proposition';
 
 @Component({
   selector: 'app-proposition-list',
@@ -9,10 +8,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./proposition-list.component.css']
 })
 export class PropositionListComponent implements OnInit {
-
   propositions: Proposition[] = [];
 
-  constructor(private propositionService: PropositionService, private router: Router) {}
+  constructor(private propositionService: PropositionService) {}
 
   ngOnInit(): void {
     this.loadPropositions();
@@ -21,32 +19,24 @@ export class PropositionListComponent implements OnInit {
   loadPropositions(): void {
     this.propositionService.getAllPropositions().subscribe(
       (data) => {
+        console.log('Propositions récupérées :', data); // Vérifiez les données reçues ici
         this.propositions = data;
       },
       (error) => {
-        console.error('Error loading propositions', error);
+        console.error('Erreur lors du chargement des propositions :', error);
       }
     );
   }
+  
 
-  // Accéder aux détails d'une proposition
-  viewProposition(id: number): void {
-    this.router.navigate([`/propositions/${id}`]);
+  editProposition(id: number): void {
+    console.log('Modifier la proposition avec l’ID :', id);
+    // Logique pour la modification
   }
 
-  // Supprimer une proposition
   deleteProposition(id: number): void {
-    this.propositionService.deleteProposition(id).subscribe(
-      () => {
-        this.loadPropositions(); // Recharger la liste après la suppression
-      },
-      (error) => {
-        console.error('Error deleting proposition', error);
-      }
-    );
-  }
-
-  createProposition(): void {
-    this.router.navigate(['propositions/create']);
+    this.propositionService.deleteProposition(id).subscribe(() => {
+      this.propositions = this.propositions.filter((p) => p.id !== id);
+    });
   }
 }

@@ -1,3 +1,8 @@
+
+
+
+
+
 /* Liste de contenu */
 .content-list {
   display: flex;
@@ -5,15 +10,20 @@
   gap: 16px;
 }
 
+
 .content-card {
+  display: flex;               /* Utilisation de flexbox pour la mise en page */
+  flex-direction: column;      /* Empile les éléments (titre et bouton) verticalement */
+  justify-content: space-between;  /* Sépare les éléments pour que le bouton soit toujours en bas */
+  width: calc(33.333% - 16px);
+  padding: 16px;
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 16px;
-  width: calc(33.333% - 16px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 
 .content-card:hover {
   transform: translateY(-5px);
@@ -26,15 +36,23 @@
   margin-bottom: 8px;
 }
 
+
 .btn {
   display: inline-block;
-  padding: 8px 16px;
+  padding: 12px;             /* Réduction de la taille et garde la forme carrée */
+  width: 100px;              /* Largeur fixe */
+  height: 50px;             /* Hauteur fixe égale à la largeur */
   border: none;
-  border-radius: 4px;
+  border-radius: 4px;       /* Coins arrondis */
   cursor: pointer;
-  font-size: 14px;
+  font-size: 16px;          /* Taille du texte ajustée pour qu'il rentre dans le carré */
+  text-align: center;       /* Centrer le texte dans le carré */
+  line-height: 24px;        /* Ajustement de l'espacement vertical du texte */
   transition: background 0.3s ease;
+  margin-top: auto;
 }
+
+
 
 .btn-primary {
   background: #14aa48;

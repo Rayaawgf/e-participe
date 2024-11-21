@@ -4,6 +4,7 @@ import { ContentService } from '../../services/content.service';
 import { Router } from '@angular/router';
 import { CommentService } from 'src/app/services/comment.service';
 import { Comment } from '../../models/comment';  // Ajustez le chemin si nécessaire
+import { UserService } from 'src/app/services/user.service';
 
 
 @Component({
@@ -17,11 +18,13 @@ export class ContentListComponent {
   comments: Comment[] = [];
   filteredContents = []; // Pour stocker les contenus filtrés
   selectedCategory: string | null = null; // La catégorie sélectionnée
+  newComment: string = '';
 
   constructor(
     private contentService: ContentService, 
     private commentService: CommentService,  // Ajout du CommentService
-    private router: Router
+    private router: Router,
+    private userService: UserService
   ) { }
 
   ngOnInit() {
@@ -37,6 +40,7 @@ export class ContentListComponent {
   closeModal(): void {
     this.selectedContent = null; // Désélectionne le contenu
     this.comments = []; // Réinitialise les commentaires
+    this.newComment = '';
   }
 
   
@@ -57,4 +61,31 @@ export class ContentListComponent {
       console.error('Content ID is undefined');
     }
   }
+
+  submitComment(contentId: number): void {
+    if (contentId !== undefined) {
+      const userId = this.userService.getCurrentUserId();
+      
+      if (userId !== null && this.newComment.trim()) {
+        const comment: Comment = {
+          contentId,
+          userId,
+          text: this.newComment,
+        };
+  
+        this.commentService.createComment(comment).subscribe((newComment: Comment) => {
+          this.comments.push(newComment);
+          this.newComment = ''; // Réinitialiser le champ de texte
+        });
+      } else {
+        console.error('Utilisateur non connecté ou commentaire vide');
+      }
+    } else {
+      console.error('ID du contenu non défini');
+    }
+  }
+  
+  
+
+  
 }

@@ -1,9 +1,8 @@
 export interface Proposition {
     id: number;
     title: string;
-    document: string;
-    userId: number;
+    document: string; // Champ pour le document
     status: boolean;
-}
-
+    userId: number;
+  }
   

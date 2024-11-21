@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ContentService } from '../../services/content.service';
 import { Content } from '../../models/content';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-content',
@@ -11,7 +12,7 @@ export class CreateContentComponent implements OnInit {
   contents: Content[] = [];
   selectedContent: Content | null = null;
 
-  constructor(private contentService: ContentService) {}
+  constructor(private contentService: ContentService, private router: Router) {}
 
   ngOnInit(): void {
     this.fetchContents();
@@ -28,9 +29,12 @@ export class CreateContentComponent implements OnInit {
   }
 
   createContent(content: Content): void {
-    this.contentService.createContent(content).subscribe(newContent => {
-      this.contents.push(newContent);
-      this.selectedContent = null;
+    this.contentService.createContent(content).subscribe((newContent) => {
+      this.contents.push(newContent); // Ajoute le nouveau contenu à la liste
+      this.selectedContent = null; // Réinitialise le contenu sélectionné
+  
+      // Redirection vers la page des contenus
+      this.router.navigate(['/contents/:category']);
     });
   }
 

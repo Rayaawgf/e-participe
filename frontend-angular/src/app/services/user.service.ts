@@ -92,4 +92,10 @@ export class UserService {
     const currentUser = localStorage.getItem('currentUser');
     return currentUser ? JSON.parse(currentUser) : null;
   }
+
+  getCurrentUserId(): number | null {
+    const user = JSON.parse(localStorage.getItem('user') || 'null');
+    return user?.id || null;
+  }
+  
 }

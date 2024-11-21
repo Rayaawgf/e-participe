@@ -1,13 +1,56 @@
-<div>
-    <h2>Créer un nouveau contenu</h2>
-    <form #contentForm="ngForm" (ngSubmit)="createContent(contentForm.value)">
-      <input type="text" name="title" ngModel placeholder="Titre" required />
-      <textarea name="body" ngModel placeholder="Contenu" required></textarea>
-      <select name="category" ngModel required>
-        <option value="LAW">Law</option>
-        <option value="ANNOUNCEMENT">Announcement</option>
-        <option value="SURVEY">Survey</option>
-      </select>
-      <button type="submit">Créer</button>
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Créer un nouveau contenu</h2>
+  <div class="card shadow p-4">
+    <form #contentForm="ngForm" (ngSubmit)="createContent(contentForm.value)" novalidate>
+      <!-- Titre -->
+      <div class="form-group mb-3">
+        <label for="title" class="form-label">Titre</label>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          class="form-control"
+          ngModel
+          placeholder="Entrez le titre du contenu"
+          required
+        />
+      </div>
+
+      <!-- Contenu -->
+      <div class="form-group mb-3">
+        <label for="body" class="form-label">Contenu</label>
+        <textarea
+          id="body"
+          name="body"
+          class="form-control"
+          ngModel
+          placeholder="Écrivez ici le contenu"
+          rows="5"
+          required
+        ></textarea>
+      </div>
+
+      <!-- Catégorie -->
+      <div class="form-group mb-4">
+        <label for="category" class="form-label">Catégorie</label>
+        <select
+          id="category"
+          name="category"
+          class="form-select"
+          ngModel
+          required
+        >
+          <option value="" disabled selected>Choisir une catégorie</option>
+          <option value="LAW">Law</option>
+          <option value="ANNOUNCEMENT">Announcement</option>
+          <option value="SURVEY">Survey</option>
+        </select>
+      </div>
+
+      <!-- Bouton de soumission -->
+      <button type="submit" class="btn btn-primary w-100" [disabled]="!contentForm.valid">
+        Créer
+      </button>
     </form>
   </div>
+</div>

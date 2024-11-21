@@ -1,22 +1,47 @@
-<div class="proposition-list">
-    <h2>Propositions</h2>
-  
-    <!-- Bouton "Créer une proposition" -->
-    <button class="create-proposition-btn" (click)="createProposition()">Créer une proposition</button>
-  
-    <div *ngIf="propositions.length > 0">
-      <ul>
-        <li *ngFor="let proposition of propositions">
-          <h3>{{ proposition.title }}</h3>
-          <p>Status: {{ proposition.status ? 'Actif' : 'Inactif' }}</p>
-          <button (click)="viewProposition(proposition.id)">Voir</button>
-          <button (click)="deleteProposition(proposition.id)">Supprimer</button>
-        </li>
-      </ul>
-    </div>
-  
-    <div *ngIf="propositions.length === 0">
-      <p>Aucune proposition disponible</p>
-    </div>
+<div class="container mt-4">
+  <!-- Bouton Ajouter une proposition -->
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Liste des Propositions</h2>
+    <button
+      class="btn btn-success"
+      routerLink="/propositions/create"
+      routerLinkActive="active"
+    >
+      + Ajouter une proposition
+    </button>
   </div>
-  
+
+  <!-- Liste des propositions -->
+  <ul class="list-group">
+    <li
+      class="list-group-item d-flex justify-content-between align-items-start"
+      *ngFor="let proposition of propositions"
+    >
+      <div class="ms-2 me-auto">
+        <div class="fw-bold">{{ proposition.title }}</div>
+   
+        <a
+          [href]="proposition.document"
+          target="_blank"
+          class="btn btn-link p-0"
+        >
+          Voir le fichier
+        </a>
+      </div>
+      <div>
+        <button
+          class="btn btn-primary me-2"
+          (click)="editProposition(proposition.id)"
+        >
+          Modifier
+        </button>
+        <button
+          class="btn btn-danger"
+          (click)="deleteProposition(proposition.id)"
+        >
+          Supprimer
+        </button>
+      </div>
+    </li>
+  </ul>
+</div>

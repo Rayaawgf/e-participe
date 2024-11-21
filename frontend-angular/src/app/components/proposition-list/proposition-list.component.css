@@ -1,0 +1,19 @@
+.proposition-list {
+    padding: 20px;
+  }
+  
+  .list-group-item {
+    margin-bottom: 10px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  h3 {
+    margin: 0 0 10px;
+  }
+  
+  .btn {
+    margin-right: 10px;
+  }
+  

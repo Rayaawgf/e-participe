@@ -1,15 +1,35 @@
-<div class="proposition-create">
-    <h2>Créer une Proposition</h2>
-    <form (ngSubmit)="createProposition()">
-      <div>
-        <label for="title">Titre</label>
-        <input type="text" id="title" [(ngModel)]="title" name="title" required>
-      </div>
-      <div>
-        <label for="file">Document</label>
-        <input type="file" id="file" (change)="onFileChange($event)" required>
-      </div>
-      <button type="submit">Créer Proposition</button>
-    </form>
-  </div>
-  
+<div class="container mt-5">
+  <h2 class="mb-4 text-center">Créer une Proposition</h2>
+  <form (ngSubmit)="createProposition()" class="p-4 shadow rounded bg-light">
+    <!-- Champ pour le titre -->
+    <div class="form-group mb-3">
+      <label for="title">Titre de la Proposition</label>
+      <input
+        type="text"
+        id="title"
+        [(ngModel)]="title"
+        name="title"
+        class="form-control"
+        placeholder="Entrez le titre"
+        required
+      />
+    </div>
+
+    <!-- Champ pour le fichier -->
+    <div class="form-group mb-3">
+      <label for="file">Document</label>
+      <input
+        type="file"
+        id="file"
+        (change)="onFileChange($event)"
+        class="form-control"
+        required
+      />
+    </div>
+
+    <!-- Bouton pour soumettre -->
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary">Créer</button>
+    </div>
+  </form>
+</div>

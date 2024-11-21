@@ -11,6 +11,8 @@ import { CommentsComponent } from './components/comments/comments.component';
 import { ContentDetailsComponent } from './components/content-details/content-details.component';
 import { PropositionListComponent } from './components/proposition-list/proposition-list.component';
 import { PropositionCreateComponent } from './components/proposition-create/proposition-create.component';
+import { CreateContentComponent } from './components/create-content/create-content.component';
+import { CommentCreateComponent } from './components/comment-create/comment-create.component';
 
 
 const routes: Routes = [
@@ -20,11 +22,14 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'contents/:category', component: ContentListComponent },
+  { path: 'create', component: CreateContentComponent },
   { path: 'comments', component: CommentsComponent },
+  { path: 'create-comment', component: CommentCreateComponent },
   { path: 'contents/:id', component: ContentDetailsComponent },
   { path: 'propositions', component: PropositionListComponent },
   { path: 'propositions/create', component: PropositionCreateComponent },
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
