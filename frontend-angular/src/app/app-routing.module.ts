@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'contents/:category', component: ContentListComponent },
   { path: 'create', component: CreateContentComponent },
   { path: 'comments', component: CommentsComponent },
-  { path: 'create-comment', component: CommentCreateComponent },
+  { path: 'create-comment/:contentId', component: CommentCreateComponent },
   { path: 'contents/:id', component: ContentDetailsComponent },
   { path: 'propositions', component: PropositionListComponent },
   { path: 'propositions/create', component: PropositionCreateComponent },
